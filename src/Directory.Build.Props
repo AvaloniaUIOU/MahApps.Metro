@@ -15,7 +15,7 @@
         <NoWarn>$(NoWarn);CS1591</NoWarn>
         <NoError>$(NoError);CS1591</NoError>
         <UseWPF>true</UseWPF>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 

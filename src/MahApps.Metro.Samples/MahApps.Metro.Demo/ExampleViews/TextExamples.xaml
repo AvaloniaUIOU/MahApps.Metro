@@ -87,7 +87,7 @@
                                 </StackPanel>
                             </DataTemplate>
                         </mah:MetroHeader.HeaderTemplate>
-                        <TextBox SpellCheck.IsEnabled="True" Text="Enabled">
+                        <TextBox  Text="Enabled">
                             <TextBox.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="This is only a Test-Item" />
@@ -101,7 +101,7 @@
                              mah:TextBoxHelper.UseFloatingWatermark="True"
                              mah:TextBoxHelper.Watermark="Watermark..."
                              mah:TextBoxHelper.WatermarkAlignment="Right"
-                             SpellCheck.IsEnabled="True"
+                             
                              ToolTip="WatermarkAlignment Right">
                         <TextBox.ContextMenu>
                             <ContextMenu>
@@ -216,24 +216,24 @@
                              mah:TextBoxHelper.ClearTextButton="True"
                              mah:TextBoxHelper.Watermark="Type something in..."
                              IsDocumentEnabled="True"
-                             SpellCheck.IsEnabled="True" />
+                              />
                 <RichTextBox Margin="{StaticResource ControlMargin}"
                              mah:TextBoxHelper.ClearTextButton="True"
                              mah:TextBoxHelper.UseFloatingWatermark="True"
                              mah:TextBoxHelper.Watermark="Need some input..."
                              IsDocumentEnabled="True"
-                             SpellCheck.IsEnabled="True" />
+                              />
                 <RichTextBox Margin="{StaticResource ControlMargin}"
                              mah:TextBoxHelper.ButtonCommand="{Binding ControlButtonCommand, Mode=OneWay}"
                              mah:TextBoxHelper.ButtonContent="s"
                              mah:TextBoxHelper.Watermark="Type in..."
                              IsDocumentEnabled="True"
-                             SpellCheck.IsEnabled="True" />
+                              />
                 <RichTextBox Height="120"
                              Margin="{StaticResource ControlMargin}"
                              mah:TextBoxHelper.SelectAllOnFocus="True"
                              IsDocumentEnabled="True"
-                             SpellCheck.IsEnabled="True">
+                             >
                     <FlowDocument>
                         <Paragraph>
                             <Hyperlink NavigateUri="https://github.com/MahApps/MahApps.Metro">

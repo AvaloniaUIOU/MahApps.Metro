@@ -7,14 +7,14 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
+//using System.Windows.Media;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MetroDemo.ExampleWindows;
 
 namespace MetroDemo
 {
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow : Window
     {
         private bool shutdown;
         private readonly MainWindowViewModel viewModel;
@@ -47,17 +47,17 @@ namespace MetroDemo
                 var fullScreen = (bool)e.NewValue;
                 if (fullScreen)
                 {
-                    window.SetCurrentValue(IgnoreTaskbarOnMaximizeProperty, true);
+                    //window.SetCurrentValue(IgnoreTaskbarOnMaximizeProperty, true);
                     window.SetCurrentValue(WindowStateProperty, WindowState.Maximized);
                     window.SetCurrentValue(WindowStyleProperty, WindowStyle.None);
-                    window.SetCurrentValue(ShowTitleBarProperty, false);
+                    //window.SetCurrentValue(ShowTitleBarProperty, false);
                 }
                 else
                 {
                     window.SetCurrentValue(WindowStateProperty, WindowState.Normal);
                     window.SetCurrentValue(WindowStyleProperty, WindowStyle.SingleBorderWindow);
-                    window.SetCurrentValue(ShowTitleBarProperty, true);
-                    window.SetCurrentValue(IgnoreTaskbarOnMaximizeProperty, false);
+                    //window.SetCurrentValue(ShowTitleBarProperty, true);
+                    //window.SetCurrentValue(IgnoreTaskbarOnMaximizeProperty, false);
                 }
             }
         }
@@ -81,12 +81,12 @@ namespace MetroDemo
                 var window = (MainWindow)dependencyObject;
                 var useAccentForDialogs = (bool)e.NewValue;
 
-                if (useAccentForDialogs == true && window.MetroDialogOptions!.ColorScheme == MetroDialogColorScheme.Inverted)
+                /*if (useAccentForDialogs == true && window.MetroDialogOptions!.ColorScheme == MetroDialogColorScheme.Inverted)
                 {
                     window.SetValue(UseInvertForDialogsProperty, false);
                 }
 
-                window.MetroDialogOptions!.ColorScheme = useAccentForDialogs ? MetroDialogColorScheme.Accented : MetroDialogColorScheme.Theme;
+                window.MetroDialogOptions!.ColorScheme = useAccentForDialogs ? MetroDialogColorScheme.Accented : MetroDialogColorScheme.Theme;*/
             }
         }
 
@@ -109,12 +109,12 @@ namespace MetroDemo
                 var window = (MainWindow)dependencyObject;
                 var useInvertForDialogs = (bool)e.NewValue;
 
-                if (useInvertForDialogs == true && window.MetroDialogOptions!.ColorScheme == MetroDialogColorScheme.Accented)
+                //if (useInvertForDialogs == true && window.MetroDialogOptions!.ColorScheme == MetroDialogColorScheme.Accented)
                 {
                     window.SetValue(UseAccentForDialogsProperty, false);
                 }
 
-                window.MetroDialogOptions!.ColorScheme = useInvertForDialogs ? MetroDialogColorScheme.Inverted : MetroDialogColorScheme.Theme;
+                //window.MetroDialogOptions!.ColorScheme = useInvertForDialogs ? MetroDialogColorScheme.Inverted : MetroDialogColorScheme.Theme;
             }
         }
 
@@ -136,7 +136,7 @@ namespace MetroDemo
             {
                 var window = (MainWindow)dependencyObject;
                 var showIconOnDialogs = (bool)e.NewValue;
-                window.MetroDialogOptions!.Icon = showIconOnDialogs
+                /*window.MetroDialogOptions!.Icon = showIconOnDialogs
                     ? new MahApps.Metro.IconPacks.PackIconMaterial()
                       {
                           Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.Duck,
@@ -144,7 +144,7 @@ namespace MetroDemo
                           Height = 75,
                           Foreground = Brushes.Goldenrod,
                       }
-                    : null;
+                    : null;*/
             }
         }
 
@@ -215,11 +215,11 @@ namespace MetroDemo
 
         #region Show Dialogs
 
-        private async void ShowMessageDialog(object sender, RoutedEventArgs e)
+        private void ShowMessageDialog(object sender, RoutedEventArgs e)
         {
             // This demo runs on .Net 4.0, but we're using the Microsoft.Bcl.Async package so we have async/await support
             // The package is only used by the demo and not a dependency of the library!
-            var settings = new MetroDialogSettings(this.MetroDialogOptions)
+            /*var settings = new MetroDialogSettings(this.MetroDialogOptions)
                            {
                                AffirmativeButtonText = "Hi",
                                NegativeButtonText = "Go away!",
@@ -232,12 +232,12 @@ namespace MetroDemo
                                                                      MessageDialogStyle.AffirmativeAndNegativeAndSingleAuxiliary,
                                                                      settings);
 
-            await this.ShowMessageAsync("Result", $"You said ({result}): {(result == MessageDialogResult.Affirmative ? settings.AffirmativeButtonText : result == MessageDialogResult.FirstAuxiliary ? settings.FirstAuxiliaryButtonText : settings.NegativeButtonText)}");
+            await this.ShowMessageAsync("Result", $"You said ({result}): {(result == MessageDialogResult.Affirmative ? settings.AffirmativeButtonText : result == MessageDialogResult.FirstAuxiliary ? settings.FirstAuxiliaryButtonText : settings.NegativeButtonText)}");*/
         }
 
-        private async void ShowLimitedMessageDialog(object sender, RoutedEventArgs e)
+        private void ShowLimitedMessageDialog(object sender, RoutedEventArgs e)
         {
-            var settings = new MetroDialogSettings(this.MetroDialogOptions)
+            /*var settings = new MetroDialogSettings(this.MetroDialogOptions)
                            {
                                AffirmativeButtonText = "Hi",
                                NegativeButtonText = "Go away!",
@@ -250,11 +250,12 @@ namespace MetroDemo
                                                                      MessageDialogStyle.AffirmativeAndNegativeAndSingleAuxiliary,
                                                                      settings);
 
-            await this.ShowMessageAsync("Result", $"You said ({result}): {(result == MessageDialogResult.Affirmative ? settings.AffirmativeButtonText : result == MessageDialogResult.FirstAuxiliary ? settings.FirstAuxiliaryButtonText : settings.NegativeButtonText)}");
+            await this.ShowMessageAsync("Result", $"You said ({result}): {(result == MessageDialogResult.Affirmative ? settings.AffirmativeButtonText : result == MessageDialogResult.FirstAuxiliary ? settings.FirstAuxiliaryButtonText : settings.NegativeButtonText)}");*/
         }
 
-        private async void ShowCustomDialog(object sender, RoutedEventArgs e)
+        private void ShowCustomDialog(object sender, RoutedEventArgs e)
         {
+            /*
             var dialog = new CustomDialog(this.MetroDialogOptions) { Content = this.Resources["CustomDialogTest"], Title = "This dialog allows arbitrary content." };
 
             await this.ShowMetroDialogAsync(dialog);
@@ -269,23 +270,24 @@ namespace MetroDemo
             textBlock.Text = "The dialog will close in 2 seconds.";
             await Task.Delay(2000);
 
-            await this.HideMetroDialogAsync(dialog);
+            await this.HideMetroDialogAsync(dialog);*/
         }
 
-        private async void ShowAwaitCustomDialog(object sender, RoutedEventArgs e)
+        private void ShowAwaitCustomDialog(object sender, RoutedEventArgs e)
         {
+            /*
             var tcs = new TaskCompletionSource<bool>();
             var dialog = new CustomDialog(this.MetroDialogOptions) { Content = this.Resources["CustomCloseDialogTest"], Title = "Custom Dialog which is awaitable" };
             dialog.Tag = tcs;
             await this.ShowMetroDialogAsync(dialog);
             await tcs.Task;
             await this.HideMetroDialogAsync(dialog);
-            await this.ShowMessageAsync("Dialog gone", "The custom dialog is now closed.");
+            await this.ShowMessageAsync("Dialog gone", "The custom dialog is now closed.");*/
         }
 
-        private async void ShowSecondCustomDialog(object sender, RoutedEventArgs e)
+        private void ShowSecondCustomDialog(object sender, RoutedEventArgs e)
         {
-            await this.ShowMessageAsync("Second Dialog", "The first custom dialog is now behind this dialog.");
+            //await this.ShowMessageAsync("Second Dialog", "The first custom dialog is now behind this dialog.");
         }
 
         private void CloseCustomDialog(object sender, RoutedEventArgs e)
@@ -295,8 +297,9 @@ namespace MetroDemo
             tcs?.TrySetResult(true);
         }
 
-        private async void ShowLoginDialogPasswordPreview(object sender, RoutedEventArgs e)
+        private void ShowLoginDialogPasswordPreview(object sender, RoutedEventArgs e)
         {
+            /*
             var result = await this.ShowLoginAsync("Authentication", "Enter your credentials", new LoginDialogSettings(this.MetroDialogOptions) { InitialUsername = "MahApps", EnablePasswordPreview = true });
             if (result == null)
             {
@@ -305,11 +308,12 @@ namespace MetroDemo
             else
             {
                 await this.ShowMessageAsync("Authentication Information", $"Username: {result.Username}\nPassword: {result.Password}");
-            }
+            }*/
         }
 
-        private async void ShowLoginDialogOnlyPassword(object sender, RoutedEventArgs e)
+        private void ShowLoginDialogOnlyPassword(object sender, RoutedEventArgs e)
         {
+            /*
             var result = await this.ShowLoginAsync("Authentication", "Enter your password", new LoginDialogSettings(this.MetroDialogOptions) { ShouldHideUsername = true });
             if (result == null)
             {
@@ -318,11 +322,12 @@ namespace MetroDemo
             else
             {
                 await this.ShowMessageAsync("Authentication Information", $"Password: {result.Password}");
-            }
+            }*/
         }
 
         private async void ShowLoginDialogWithRememberCheckBox(object sender, RoutedEventArgs e)
         {
+            /*
             var result = await this.ShowLoginAsync("Authentication", "Enter your password", new LoginDialogSettings(this.MetroDialogOptions) { RememberCheckBoxVisibility = Visibility.Visible });
             if (result == null)
             {
@@ -331,11 +336,12 @@ namespace MetroDemo
             else
             {
                 await this.ShowMessageAsync("Authentication Information", $"Username: {result.Username}\nPassword: {result.Password}\nShouldRemember: {result.ShouldRemember}");
-            }
+            }*/
         }
 
-        private async void ShowProgressDialog(object sender, RoutedEventArgs e)
+        private void ShowProgressDialog(object sender, RoutedEventArgs e)
         {
+            /*
             var settings = new MetroDialogSettings(this.MetroDialogOptions)
                            {
                                NegativeButtonText = "Close now",
@@ -377,11 +383,12 @@ namespace MetroDemo
             else
             {
                 await this.ShowMessageAsync("Cupcakes!", "Your cupcakes are finished! Enjoy!");
-            }
+            }*/
         }
 
         private async void ShowInputDialog(object sender, RoutedEventArgs e)
         {
+            /*
             string? result = await this.ShowInputAsync("Hello!", "What is your name?");
 
             if (string.IsNullOrWhiteSpace(result)) //user pressed cancel
@@ -389,11 +396,12 @@ namespace MetroDemo
                 return;
             }
 
-            await this.ShowMessageAsync("Hello", "Hello " + result + "!");
+            await this.ShowMessageAsync("Hello", "Hello " + result + "!");*/
         }
 
         private async void ShowInputDialogCustomButtonSizes(object sender, RoutedEventArgs e)
         {
+            /*
             var settings = new MetroDialogSettings(this.MetroDialogOptions)
                            {
                                DialogButtonFontSize = 24D
@@ -406,11 +414,12 @@ namespace MetroDemo
                 return;
             }
 
-            await this.ShowMessageAsync("Hello", "Hello " + result + "!");
+            await this.ShowMessageAsync("Hello", "Hello " + result + "!");*/
         }
 
         private async void ShowLoginDialog(object sender, RoutedEventArgs e)
         {
+            /*
             var result = await this.ShowLoginAsync("Authentication", "Enter your credentials", new LoginDialogSettings(this.MetroDialogOptions) { InitialUsername = "MahApps" });
             if (result == null)
             {
@@ -419,7 +428,7 @@ namespace MetroDemo
             else
             {
                 await this.ShowMessageAsync("Authentication Information", $"Username: {result.Username}\nPassword: {result.Password}");
-            }
+            }*/
         }
 
         #endregion
@@ -428,6 +437,7 @@ namespace MetroDemo
 
         private void ShowInputDialogOutside(object sender, RoutedEventArgs e)
         {
+            /*
             var result = this.ShowModalInputExternal("Hello!", "What is your name?", new MetroDialogSettings(this.MetroDialogOptions) { AnimateShow = false });
 
             if (result == null) //user pressed cancel
@@ -435,11 +445,12 @@ namespace MetroDemo
                 return;
             }
 
-            this.ShowModalMessageExternal("Hello", "Hello " + result + "!");
+            this.ShowModalMessageExternal("Hello", "Hello " + result + "!");*/
         }
 
         private void ShowLoginDialogOutside(object sender, RoutedEventArgs e)
         {
+            /*
             var result = this.ShowModalLoginExternal("Authentication", "Enter your credentials", new LoginDialogSettings(this.MetroDialogOptions) { InitialUsername = "MahApps", EnablePasswordPreview = true });
             if (result == null)
             {
@@ -448,11 +459,12 @@ namespace MetroDemo
             else
             {
                 MessageDialogResult messageResult = this.ShowModalMessageExternal("Authentication Information", $"Username: {result.Username}\nPassword: {result.Password}");
-            }
+            }*/
         }
 
         private void ShowMessageDialogOutside(object sender, RoutedEventArgs e)
         {
+            /*
             var settings = new MetroDialogSettings(this.MetroDialogOptions)
                            {
                                AffirmativeButtonText = "Hi",
@@ -470,7 +482,7 @@ namespace MetroDemo
                                                   ? settings.AffirmativeButtonText
                                                   : settings.NegativeButtonText +
                                                     Environment.NewLine + Environment.NewLine + "This dialog will follow the Use Accent setting."));
-            }
+            }*/
         }
 
         #endregion
@@ -521,8 +533,9 @@ namespace MetroDemo
             }
         }
 
-        private async Task ConfirmShutdown()
+        private Task ConfirmShutdown()
         {
+            /*
             var mySettings = new MetroDialogSettings
                              {
                                  AffirmativeButtonText = "Quit",
@@ -542,6 +555,8 @@ namespace MetroDemo
             {
                 Application.Current.Shutdown();
             }
+            */
+            return Task.CompletedTask;
         }
 
         private MetroWindow? testWindow;

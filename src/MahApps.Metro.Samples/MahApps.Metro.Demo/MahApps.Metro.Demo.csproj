@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Upf.Sdk/9999.0.0-localbuild">
     <!-- Project properties -->
     <PropertyGroup>
+        <TargetFrameworks>net6.0-windows</TargetFrameworks>
         <AssemblyName>MahApps.Metro.Demo</AssemblyName>
         <RootNamespace>MetroDemo</RootNamespace>
         <DisableFody Condition=" '$(Configuration)' == 'Debug' ">true</DisableFody>
@@ -26,6 +26,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Update="Upf" VersionOverride="9999.0.0-localbuild"/>
+        <PackageReference Include="AvaloniaUI.Xpf.WinApiShim" VersionOverride="$(UpfSdkVersion)" />
         <PackageReference Include="MaterialDesignThemes" />
         <PackageReference Include="MaterialDesignColors" />
         <PackageReference Include="MahApps.Metro.IconPacks.Entypo" />

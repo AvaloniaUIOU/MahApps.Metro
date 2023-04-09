@@ -71,7 +71,7 @@ namespace MetroDemo.ExampleViews
         private static async void Execute(object sender, ExecutedRoutedEventArgs e)
         {
             var menuItem = e.Parameter as HamburgerMenuItem;
-            await ((MainWindow)sender).ShowMessageAsync("", $"You clicked on {menuItem?.Label} button");
+            //await ((MainWindow)sender).ShowMessageAsync("", $"You clicked on {menuItem?.Label} button");
         }
     }
 }

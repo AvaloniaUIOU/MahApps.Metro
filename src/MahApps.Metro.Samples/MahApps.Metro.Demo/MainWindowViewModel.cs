@@ -114,7 +114,7 @@ namespace MetroDemo
             {
                 if (this.HotKey is not null)
                 {
-                    HotkeyManager.Current.AddOrReplace("demo", this.HotKey.Key, this.HotKey.ModifierKeys, async (sender, e) => await this.OnHotKey(sender, e));
+                    //HotkeyManager.Current.AddOrReplace("demo", this.HotKey.Key, this.HotKey.ModifierKeys, async (sender, e) => await this.OnHotKey(sender, e));
                 }
             }
             catch (HotkeyAlreadyRegisteredException exception)
@@ -278,7 +278,7 @@ namespace MetroDemo
 
         public void Dispose()
         {
-            HotkeyManager.Current.Remove("demo");
+            //HotkeyManager.Current.Remove("demo");
         }
 
         private bool showTitleColumn = true;
@@ -549,11 +549,11 @@ namespace MetroDemo
                 {
                     if (value != null && value.Key != Key.None)
                     {
-                        HotkeyManager.Current.AddOrReplace("demo", value.Key, value.ModifierKeys, async (sender, e) => await this.OnHotKey(sender, e));
+                        //HotkeyManager.Current.AddOrReplace("demo", value.Key, value.ModifierKeys, async (sender, e) => await this.OnHotKey(sender, e));
                     }
                     else
                     {
-                        HotkeyManager.Current.Remove("demo");
+                        //HotkeyManager.Current.Remove("demo");
                     }
                 }
             }
@@ -570,14 +570,14 @@ namespace MetroDemo
 
         private void ToggleIconScaling(MultiFrameImageMode? multiFrameImageMode)
         {
-            ((MetroWindow)Application.Current.MainWindow).IconScalingMode = multiFrameImageMode!.Value;
+            /*((MetroWindow)Application.Current.MainWindow).IconScalingMode = multiFrameImageMode!.Value;
             this.OnPropertyChanged(nameof(this.IsScaleDownLargerFrame));
-            this.OnPropertyChanged(nameof(this.IsNoScaleSmallerFrame));
+            this.OnPropertyChanged(nameof(this.IsNoScaleSmallerFrame));*/
         }
 
-        public bool IsScaleDownLargerFrame => ((MetroWindow)Application.Current.MainWindow).IconScalingMode == MultiFrameImageMode.ScaleDownLargerFrame;
+        public bool IsScaleDownLargerFrame => false;//((MetroWindow)Application.Current.MainWindow).IconScalingMode == MultiFrameImageMode.ScaleDownLargerFrame;
 
-        public bool IsNoScaleSmallerFrame => ((MetroWindow)Application.Current.MainWindow).IconScalingMode == MultiFrameImageMode.NoScaleSmallerFrame;
+        public bool IsNoScaleSmallerFrame => false;//((MetroWindow)Application.Current.MainWindow).IconScalingMode == MultiFrameImageMode.NoScaleSmallerFrame;
 
         public bool IsToggleSwitchVisible { get; set; }
 

@@ -32,7 +32,7 @@ namespace MahApps.Metro.Controls
                     hotKeyBox.RaiseEvent(new RoutedPropertyChangedEventArgs<HotKey?>(e.OldValue as HotKey, e.NewValue as HotKey, HotKeyChangedEvent));
                 }
 
-                hotKeyBox.UpdateText();
+                //hotKeyBox.UpdateText();
             }
         }
 

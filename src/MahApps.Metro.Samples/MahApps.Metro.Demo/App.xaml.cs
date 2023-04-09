@@ -3,6 +3,7 @@
 // See the LICENSE file in the project root for more information.
 
 using System.Windows;
+using AvaloniaUI.Xpf.WinApiShim;
 
 namespace MetroDemo
 {
@@ -11,5 +12,11 @@ namespace MetroDemo
     /// </summary>
     public partial class App : Application
     {
+
+        public App()
+        {
+            WinApiShimSetup.AutoEnable();
+            this.InitializeComponent();
+        }
     }
 }
